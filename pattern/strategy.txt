@@ -1,0 +1,5 @@
+*Strategie* définit une famille d'algorithmes/caractéristiques/comporteents, chacun implémentés séparéments et rendus interchangeable.
+Il permet à ces algorithmes d'être indépendants des _clients_ qui les utilisent.
+
+ifndef::slides[.Modèle UML de _Strategie_]
+image::strategy.svg[]
