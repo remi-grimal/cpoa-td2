@@ -1,0 +1,5 @@
+task fix0 {
+      doLast {
+        println 'hello world'
+      }
+    }

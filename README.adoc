@@ -222,7 +222,41 @@ Voici la classe contrôleur du bouilleur industriel de _Bonchoco, SA_.
 .Contrôleur du bouilleur en Java
 [source,java]
 ------
-include::{sourcedir}/Chocolat/src/BouilleurChocolat.java[]
+public class BouilleurChocolat {
+	private boolean vide;
+	private boolean bouilli;
+
+	public BouilleurChocolat() {
+		vide = true;
+		bouilli = false;
+	}
+
+	public void remplir() {
+		if (estVide()) {
+			vide = false;
+			bouilli = false;
+			// remplir le bouilleur du mélange lait/chocolat
+		}
+	}
+
+	public void vider() {
+		if (!estVide() && estBouilli()) {
+			// vider le mélange
+			vide = true;
+		}
+	}
+
+	public void bouillir() {
+		if (!estVide() && !estBouilli()) {
+			// porter le contenu à ébullition
+			bouilli = true;
+		}
+	}
+
+	public boolean estVide() { return vide;}
+
+	public boolean estBouilli() { return bouilli;}
+}
 ------
 endif::[]
 
@@ -294,7 +328,22 @@ Qu'est-ce qui ne va pas dans l'extrait de code suivant :
 .BouilleurCptChocolat.java
 [source,java]
 -----
-include::{sourcedir}/Chocolat/src/BouilleurCptChocolat.java[lines=5..19]
+public class BouilleurCptChocolat { 
+	private boolean vide;
+	private boolean bouilli; 
+	private static int nbInstance = 0;
+
+	public BouilleurCptChocolat() {
+		vide = true;
+		bouilli = false;
+		if (nbInstance == 0) {
+			nbInstance = 1;
+			return this;
+		}
+		else {
+			return null;
+		}
+...
 -----
 ====
 //----------------------------------------------------- Correction -------------------------
@@ -560,8 +609,7 @@ ifdef::prof[]
 [CAUTION]
 =====
 . Une seule fois, lors du 1er passage dans la méthode!!
-. C'est bien trop consomateur en ressource! En pratique, il y a des copies de
-blocs de mémoire, ce qui prend du temps.
+. C'est bien trop consomateur en ressource! En pratique, il y a des copies de blocs de mémoire, ce qui prend du temps.
 
 . Voici un exemple :
 +
@@ -575,17 +623,14 @@ public class Singleton {
 }
 ------
 +
-En adoptant cette approche, nous nous reposons sur la JVM pour créer
-l'unique instance du Singleton quand la classe est chargée.
-La JVM garantit que l'instance sera créée avant qu'un thread
-quelconque n'accède à la variable statique `uniqueInstance`.
+En adoptant cette approche, nous nous reposons sur la JVM pour créer l'unique instance du Singleton quand la classe est chargée.
+La JVM garantit que l'instance sera créée avant qu'un thread quelconque n'accède à la variable statique `uniqueInstance`.
 
 =====
 endif::prof[]
 //----------------------------------------------------- fin Correction -------------------------
 
-WARNING: Il peut y avoir des situations où le coût de la synchronisation est inférieur au coût de
-créer dès le départ une instance (par exemple gourmande en mémoire).
+WARNING: Il peut y avoir des situations où le coût de la synchronisation est inférieur au coût de créer dès le départ une instance (par exemple gourmande en mémoire).
 
 [[Singleton]]
 == Singleton
@@ -595,7 +640,12 @@ Félicitations, vous venez de mettre en oeuvre votre deuxième patron, le *Singl
 [NOTE]
 .Design pattern : *Singleton*
 ====
-include::pattern/singleton.txt[]
+*Singleton* garantit qu'une classe n'a qu'une seule instance et
+fournit un point d'accès global à cette instance.
+
+
+ifndef::slides[.Modèle UML du patron _Singleton_]
+image::singleton.png[]
 ====
 
 ifdef::prof[]
@@ -608,18 +658,14 @@ endif::prof[]
 === Combiner plusieurs patrons?
 
 Peut-on combiner les deux derniers patrons vus en TD (_Strategy_ et Singleton)?
-En effet, les comportements sont portés par des objets pour l'aspect algorithme,
-mais il n'y a pas de raison de ne pas les partager entre tous les objets qui
-"utilisent" ce comportement?!
+En effet, les comportements sont portés par des objets pour l'aspect algorithme, mais il n'y a pas de raison de ne pas les partager entre tous les objets qui "utilisent" ce comportement?!
 
 ifndef::compact[]
 [NOTE]
 =======
 endif::compact[]
 Dans la plupart des cas ces deux patrons ne vont *pas du tout ensemble*.
-Cette stratégie n'est recommandée que dans un cas bien précis d'utilisation de
-_Strategy_ : celui où les comportements sont simples et "statiques" (pas de
-	consommation de ressources par exemple) et où l'on utilise une association :
+Cette stratégie n'est recommandée que dans un cas bien précis d'utilisation de _Strategy_ : celui où les comportements sont simples et "statiques" (pas de consommation de ressources par exemple) et où l'on utilise une association :
 
 image::strategy-assoc.png[]
 
@@ -683,9 +729,7 @@ endif::prof[]
 .*QUESTION*
 [WARNING]
 ====
-Il existe une autre façon de gérer le problème du multithreading. Cherchez sur Internet
-les articles sur le "verrouillage à double vérification" (qui ne fonctionne que depuis
-	Java `1.5`).
+Il existe une autre façon de gérer le problème du multithreading. Cherchez sur Internet les articles sur le "verrouillage à double vérification" (qui ne fonctionne que depuis Java `1.5`).
 ====
 
 [TIP]
