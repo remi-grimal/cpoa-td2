@@ -4,6 +4,7 @@ v20.1 {localdate}
 :tdnum: TD2
 :imagesdir: images
 :sourcedir: src
+:uk:
 //------------------------- variables de configuration
 // only used when master document
 :icons: font
@@ -188,14 +189,15 @@ image::headFirst.jpg[link="https://www.oreilly.com/library/view/head-first-desig
 
 === Existing application
 
-You are asked to work on an existing app `SuperCanard` (duck, called _canard_ in French, simulation game) which model (sorry for the French) is provided in the following class diagram:
+Vous participez au développement d'un simulateur de fabriques
+de chocolat modernes dont des bouilleurs sont assistés par ordinateur.
 
-.Existing app model (plantUML source link:images/superCanard.plantuml[here])
-image::superCanard.png[]
+La tâche du bouilleur consiste à contenir un mélange de chocolat et de lait,
+à le porter à ébullition puis à le transmettre à la phase suivante où il est
+transformé en plaquettes de chocolat.
 
-NOTE: Some other classes inherit from `Canard`.
+Voici la classe contrôleur du bouilleur industriel de _Bonchoco, SA_.
 
-Here is a code example:
 endif::[]
 ifndef::uk[]
 == La fabrique de chocolat
@@ -210,12 +212,9 @@ image::headFirst.jpg[link="https://www.oreilly.com/library/view/head-first-desig
 
 === Problème initial
 
-Vous participez au développement d'un simulateur de fabriques
-de chocolat modernes dont des bouilleurs sont assistés par ordinateur.
+Vous participez au développement d'un simulateur de fabriques de chocolat modernes dont des bouilleurs sont assistés par ordinateur.
 
-La tâche du bouilleur consiste à contenir un mélange de chocolat et de lait,
-à le porter à ébullition puis à le transmettre à la phase suivante où il est
-transformé en plaquettes de chocolat.
+La tâche du bouilleur consiste à contenir un mélange de chocolat et de lait, à le porter à ébullition puis à le transmettre à la phase suivante où il est transformé en plaquettes de chocolat.
 
 Voici la classe contrôleur du bouilleur industriel de _Bonchoco, SA_.
 
@@ -736,7 +735,6 @@ Il existe une autre façon de gérer le problème du multithreading. Cherchez su
 ====
 N'hésitez pas à consulter les liens suivants :
 
-- http://thecodersbreakfast.net/index.php?post/2008/02/25/26-de-la-bonne-implementation-du-singleton-en-java
 - http://christophej.developpez.com/tutoriel/java/singleton/multithread/
 ====
 
