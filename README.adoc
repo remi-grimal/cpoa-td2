@@ -4,7 +4,7 @@ v20.1 {localdate}
 :tdnum: TD2
 :imagesdir: images
 :sourcedir: src
-:uk:
+:uk!:
 //------------------------- variables de configuration
 // only used when master document
 :icons: font
@@ -175,32 +175,7 @@ endif::[]
 
 
 :numbered:
-ifdef::uk[]
-//------------------------------------ 
-== The "Chocolate Factory" app
-
-[NOTE]
-=====
-This TD exercise is inspired from the excellent https://www.oreilly.com/library/view/head-first-design/0596007124/[book]: "Head First: Design Pattern.
-Bert Bates, Eric Freeman, Elisabeth Freeman, Kathy Sierra. Editions O'Reilly. 2005."
-
-image::headFirst.jpg[link="https://www.oreilly.com/library/view/head-first-design/0596007124/",width=40%]
-=====
-
-=== Existing application
-
-Vous participez au développement d'un simulateur de fabriques
-de chocolat modernes dont des bouilleurs sont assistés par ordinateur.
-
-La tâche du bouilleur consiste à contenir un mélange de chocolat et de lait,
-à le porter à ébullition puis à le transmettre à la phase suivante où il est
-transformé en plaquettes de chocolat.
-
-Voici la classe contrôleur du bouilleur industriel de _Bonchoco, SA_.
-
-endif::[]
-ifndef::uk[]
-== La fabrique de chocolat
+== La fabrique de cocolats
 
 [NOTE]
 =====
@@ -257,7 +232,6 @@ public class BouilleurChocolat {
 	public boolean estBouilli() { return bouilli;}
 }
 ------
-endif::[]
 
 //----------------------------- Question ------------------
 .*QUESTION*
