@@ -4,8 +4,13 @@
 BIBLIO=biblio.bib
 #-----------------------------------------------------
 
+all: README.html README.pdf
+
 README.html: README.adoc
 	asciidoctor README.adoc
+
+README.pdf: README.adoc
+	asciidoctor-pdf README.adoc
 
 todos: 
 	@echo "========================================"

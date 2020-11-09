@@ -1,0 +1,10 @@
+@startuml
+
+!include util/config.cfg
+
+[*] --> Empty
+Empty -> Full : fill()
+Full -> Boiling : boil()
+Boiling -> Empty : drain()
+
+@enduml
