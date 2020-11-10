@@ -9,7 +9,7 @@
 README = ARGV[0] ? ARGV[0] : "../README.adoc"
 
 fixNb = __FILE__.scan(/\d+/)
-File.open(README, :encoding => 'utf-8') { |f|
+File.open(README) { |f|
   result = true
 
   content = f.read
