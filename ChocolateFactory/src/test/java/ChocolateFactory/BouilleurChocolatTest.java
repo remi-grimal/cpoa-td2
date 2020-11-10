@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class BouilleurChocolatTest {
     @Test 
     public void aNewBouilleurChocolatisEmpty() {
-        BouilleurChocolat classUnderTest = new BouilleurChocolat();
-        assertFalse("A new BouilleurChocolat is empty", classUnderTest.estVide());
+        BouilleurChocolat classUnderTest = BouilleurChocolat.getInstance();
+        assertTrue("A new BouilleurChocolat is empty", classUnderTest.estVide());
     }
 }
