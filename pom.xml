@@ -74,6 +74,7 @@
                 <version>1.5.0</version>
                 <executions>
                 <execution>
+                    <id>fix0</id>
                     <phase>install</phase>
                     <goals>
                     <goal>exec</goal>
@@ -84,6 +85,20 @@
                     <arguments>
                         <argument>testfix0.rb</argument>
                         <argument>../README.adoc</argument>
+                    </arguments>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>fix1.3</id>
+                    <phase>install</phase>
+                    <goals>
+                    <goal>exec</goal>
+                    </goals>
+                    <configuration>
+                    <executable>ruby</executable>
+                    <workingDirectory>tests</workingDirectory>
+                    <arguments>
+                        <argument>checkModel.rb</argument>
                     </arguments>
                     </configuration>
                 </execution>
