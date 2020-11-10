@@ -190,7 +190,7 @@ endif::[]
 
 
 :numbered:
-== La fabrique de cocolats
+== La fabrique de chocolats
 
 [NOTE]
 =====
@@ -281,12 +281,10 @@ Vous vous réveillez en sursaut avec une crainte terrible.
 ====
 . Que pourrait-il se passer avec plusieurs instances de contrôleurs (pour un seul et même bouilleur)?
 +
-Pour tester ce scénario, essayez :
+Pour tester ce scénario, exécutez le test unitaire JUnit `twoChocolateBoilersMightBlowTheFactory` fourni dans votre repo :
 +
-[source,shell]
-----
-mvn crash
-----
+.Un test qui ne devrait pas échouer
+image::failingTest.png[]
 +
 . De quoi faudrait-il s'assurer pour éviter ce problème?
 . Trouvez des exemples de situations où il est important de n'avoir
@@ -416,6 +414,11 @@ public class BouilleurSafeChocolat {
 -----
 +
 * [ ] Ecrivez un test qui utilise cette classe
+* [ ] Modifiez le test unitaire JUnit `twoChocolateBoilersMightBlowTheFactory` et vérifiez qu'il passe cette fois :
++
+.Un test qui n'échoue plus
+image::passingTest.png[]
+
 * [ ] Quand tout est OK, push votre code :
 +
 ifndef::backend-pdf[.pass:[<i class="fa fa-github"></i>] commit/push]
@@ -734,6 +737,30 @@ N'hésitez pas à consulter les liens suivants :
 ====
 
 
+//------------------------------------ 
+== Ressources
+//------------------------------------ 
+
+Mise en place de l'environnement Eclipse:
+
+- Créez un nouveau répertoire (disons `TD2`)
+- Dans ce dossier ouvrez un git bash
+- git clone http://urlduprojet
+- Ouvrez eclipse, changez de workspace, sélectionnez le dossier `TD2`
+- Une fois le workspace ouvert, cliquez sur menu:File[Import > General > Existing Projects into Workspace] puis `Next`
+- menu:Select root directory[Browse], sélectionnez ce repo (`urlduprojet` dans cet example)
+- Cliquez sur menu:Finish[]
+
+Installation de Maven sous Windows:
+
+- Télécharger: https://apache.mediamirrors.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+- Décompresser le contenu dans `C:\Programmes\Java`
+- Dans Menu Démarrer, taper `Environnement` puis cliquer sur menu:Modifier les variables d'environnement système[]
+- Cliquer sur `Variables d'environnement`
+- Dans la section `Variables système`, sélectionner `Path`, cliquer sur `Modifier`
+- Cliquez sur `Nouveau`, puis saisissez `C:\Program Files\Java\apache-maven-3.6.3\bin` (vérifiez que le dossier existe)
+- Cliquez successivement 3 fois sur "OK".
+- La commande MVM devrait être disponible dans un cmd windows (fermer les existants)
 
 
 //------------------------------------ 
@@ -741,6 +768,7 @@ N'hésitez pas à consulter les liens suivants :
 //------------------------------------ 
 
 - mailto:jbruel@gmail.com[Jean-Michel Bruel]
+- mailto:louis@chanouha.fr[Louis Chanouha]
 
 
 == {about}
