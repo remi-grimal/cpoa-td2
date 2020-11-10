@@ -6,10 +6,15 @@ package ChocolateFactory;
 public class BouilleurChocolat {
 	private boolean vide;
 	private boolean bouilli;
+	public static final BouilleurChocolat uniqueInstance = new BouilleurChocolat();
 
-	public BouilleurChocolat() {
+	private BouilleurChocolat() {
 		vide = true;
 		bouilli = false;
+	}
+
+	public static BouilleurChocolat getInstance(){
+		return uniqueInstance;
 	}
 
 	public void remplir() {
